@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Restaurant from "./pages/Restaurant";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Navbar from "./components/Navbar";
+import "./App.css";
 
 function App() {
+  const [cart, setCart] = useState([]); // Centralized cart state
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/restaurant/:id" element={<Restaurant cart={cart} setCart={setCart} />} />
+        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }
 

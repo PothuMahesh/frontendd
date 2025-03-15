@@ -1,0 +1,22 @@
+.home {
+    text-align: center;
+  }
+  .restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .restaurant-card {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+  }
+  .restaurant-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
